@@ -14,66 +14,81 @@ class ExpensesApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final _transactions = [
-    Transactions(id: 't1', title: 'Tenis de corrida', value: 310.76, date: DateTime.now()),
-    Transactions(id: 't2', title: 'Conta de Luz', value: 211.30, date: DateTime.now()),
-    Transactions(id: 't3', title: 'Mouse Phoda', value: 700.01, date: DateTime.now()),
+    Transactions(
+        id: 't1',
+        title: 'Tenis de corrida',
+        value: 310.76,
+        date: DateTime.now()),
+    Transactions(
+        id: 't2', title: 'Conta de Luz', value: 211.30, date: DateTime.now()),
+    Transactions(
+        id: 't3', title: 'Mouse Phoda', value: 700.01, date: DateTime.now()),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Despesas Pessoais'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            child: Card(
-              color: Colors.blue,
-              child: Text('Gráfico'),
-              elevation: 5,
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: _transactions.map((transaction) => Card(
-              child: Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: 15,
-                      vertical: 10
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.purple,
-                        width: 2,
-                      ),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      transaction.value.toString(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.purple,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Text(transaction.title),
-                      Text(transaction.date.toString())
-                    ],
-                  )
-                ],
+        appBar: AppBar(
+          title: Text('Despesas Pessoais'),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              child: Card(
+                color: Colors.blue,
+                child: Text('Gráfico'),
+                elevation: 5,
               ),
-            )).toList(),
-          )
-        ],
-      )
-    );
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: _transactions
+                  .map((transaction) => Card(
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 10),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.purple,
+                                  width: 2,
+                                ),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Text(
+                                'R\$ ${transaction.value.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.purple,
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  transaction.title,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  transaction.date.toString(),
+                                  style: TextStyle(color: Colors.grey),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ))
+                  .toList(),
+            )
+          ],
+        ));
   }
 }
