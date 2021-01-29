@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 main() => runApp(ExpensesApp());
@@ -18,9 +20,21 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Despesas Pessoais'),
       ),
-      body: Center(
-        child: Text('Versão Inicial'),
-      ),
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text('Gráfico'),
+              elevation: 5,
+            ),
+          ),
+          Card(
+            child: Text('Lista de transações'),
+          )
+        ],
+      )
     );
   }
 }
