@@ -28,14 +28,15 @@ class TransactionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                    onPressed: () {
-                      print(titleController.text);
-                      print(valueController.text);
-                    },
-                    child: Text(
-                      'Novo Lançamento',
-                      style: TextStyle(color: Colors.purple),
-                    )),
+                  onPressed: () {
+                    print(titleController.text);
+                    print(valueController.text);
+                  },
+                  child: Text(
+                    'Novo Lançamento',
+                    style: TextStyle(color: Colors.purple),
+                  ),
+                ),
               ],
             ),
           ],
