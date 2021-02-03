@@ -13,9 +13,21 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.amber
-      ),
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: 'Quicksand',
+          textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+          )),
     );
   }
 }
@@ -31,36 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
       id: 't1',
       title: 'Tenis de corrida',
       value: 310.76,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'Mouse Phoda',
-      value: 700.01,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'Entrada apê',
-      value: 900.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't5',
-      title: 'Consórcio',
-      value: 320.00,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't6',
-      title: 'Ajuda em casa',
-      value: 400.00,
       date: DateTime.now(),
     ),
   ];
