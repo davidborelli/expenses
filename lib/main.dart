@@ -12,6 +12,10 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber
+      ),
     );
   }
 }
@@ -101,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Container(
               child: Card(
-                color: Colors.blue,
+                color: Theme.of(context).primaryColor,
                 child: Text('Gráfico'),
                 elevation: 5,
               ),
@@ -114,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         icon: Icon(
           Icons.add_circle,
           size: 40,
-          color: Colors.blue,
+          color: Theme.of(context).accentColor,
         ),
         onPressed: () => _openTransactionFormModal(context),
       ),

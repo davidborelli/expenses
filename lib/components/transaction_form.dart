@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatefulWidget {
-  final void Function(String title, double value, BuildContext context) addTransaction;
+  final void Function(String title, double value, BuildContext context)
+      addTransaction;
 
   TransactionForm(this.addTransaction);
 
@@ -58,7 +59,9 @@ class _TransactionFormState extends State<TransactionForm> {
                     onPressed: () => _submitForm(context),
                     child: Text(
                       'Novo Lançamento',
-                      style: TextStyle(color: Colors.purple),
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                 ],
