@@ -61,15 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   ];
 
-  _openTransactionFormModal(BuildContext context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return TransactionForm(null);
-        });
-  }
-
-  _addTransaction(String title, double value) {
+  _addTransaction(String title, double value, BuildContext context) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
@@ -80,6 +72,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+    Navigator.of(context).pop();
+  }
+
+  _openTransactionFormModal(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return TransactionForm(_addTransaction);
+        });
   }
 
   @override
